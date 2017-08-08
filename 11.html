@@ -1,0 +1,28 @@
+<!---Initializing the model using an Angular controller,
+   defined within an Angular module---->
+
+<html ng-app="nameApp">
+	<head>
+		<meta charset="utf-8">
+		<title>Angular.js Example</title>
+		 <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
+
+		 <script>
+		 	var nameApp = angular.module('nameApp', []);
+		 	nameApp.controller('NameCtrl', function ($scope){
+		 		$scope.firstName = 'Charu';
+		 		$scope.lastName = 'Awhad';
+		 	});
+		 </script>
+	</head>
+
+	<body ng-controller="NameCtrl">
+		First name:<input ng-model="firstName" type="text"/>
+		<br>
+		Last name:<input ng-model="lastName" type="text"/>
+		<br>
+
+		Hello {{firstName}} {{lastName}}
+		
+	</body>
+</html>

@@ -1,0 +1,22 @@
+<html>
+	<head>
+	<meta charset="utf-8">
+	<title>HTML Starter</title>
+	</head>
+
+	<body>
+		Name:<input id="textInput" type="text" />
+		Hello World!!!
+
+		<script>
+			var textInputElement = document.getElementById('textInput');
+
+			textInputElement.addEventListener('keyup', function(){
+				var text = textInputElement.value;
+				console.log('new text is "' + text + '"');
+			});
+
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<!---Enumerating objects- countries and their populations-------->
+
+
+
+<html ng-app="countryApp">
+	<head>
+		<meta charset="utf-8">
+		<title>Angular.js Example</title>
+		 <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
+
+
+		 <script>
+		 	var countryApp = angular.module('countryApp', []);
+		 	countryApp.controller('CountryCtrl', function ($scope){
+		 		$scope.countries = [
+		 			{"name": "China", "population": 12343275672},
+		 			{"name":"India", "population": 7489327824},
+		 			{"name":"USA", "population": 5743838756}
+		 		];
+		 	});
+		 	
+		 </script>
+	</head>
+
+	<body ng-controller="CountryCtrl">
+		<ul>
+			<li ng-repeat="country in countries">{{country.name}} - population {{country.population}}</li>
+		</ul>
+
+		
+	</body>
+</html>

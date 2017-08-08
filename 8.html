@@ -1,0 +1,25 @@
+<!---Data binding with many text inputs------>
+
+<html ng-app>
+	<head>
+		<meta charset="utf-8">
+		<title>Angular.js Example</title>
+		 <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
+	</head>
+
+	<body>
+		Name:<input ng-model="name1" type="text1"/>
+		<br>
+		Name:<input ng-model="name2" type="text2"/>
+		<br>
+		Name:<input ng-model="name3" type="text3"/>
+		<br>
+
+		Hello {{name1}}
+		<br>
+		Hello {{name2}}
+		<br>
+		Hello {{name3}}
+		<br>
+	</body>
+</html>

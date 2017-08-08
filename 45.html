@@ -1,0 +1,66 @@
+<!----Simulating a RESTful service by splitting the JSON data across files ---->
+
+<html ng-app="countryApp">
+	<head>
+		<meta charset="utf-8">
+		<title>Angular.js Example</title>
+		 <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
+		 <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular-route.min.js"></script>
+
+
+		 <script>
+		 	var countryApp = angular.module('countryApp', ['ngRoute']);
+
+		 	countryApp.config(function($routeProvider) {
+		 		$routeProvider.
+
+		 		when('/', {
+		 			templateUrl: 'country-list_45.html',
+		 			controller: 'CountryListCtrl'
+		 		}).
+		 		when('/:countryId', {
+		 			templateUrl: 'country-detail_45.html',
+		 			controller: 'CountryDetailCtrl'
+		 		}).
+		 		otherwise({
+		 			redirectTo: '/'
+		 		});
+		 	});
+
+
+		 	
+
+		 	countryApp.directive('country', function(){
+		 		return {
+		 			scope: {
+		 				country: '='
+		 			},
+		 			restrict: 'A',
+		 			templateUrl: 'country.html'
+		 		};
+		 	});
+
+
+		 	countryApp.controller('CountryListCtrl', function ($scope, countries){
+		 		countries.list(function(countries) {
+		 			$scope.countries = countries;
+		 		});
+		 	});
+
+		 	countryApp.controller('CountryDetailCtrl', function ($scope, $routeParams, countries){
+		 		countries.find($routeParams.countryId, function(country) {
+		 			$scope.country = country;
+		 		});
+		 	});
+
+
+		 </script>
+
+	</head>
+
+	<body>
+		<div ng-view></div>
+		
+	</body>
+</html>
+
